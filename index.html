@@ -220,6 +220,13 @@
             margin-bottom: 5px;
         }
         
+        .visualization-info {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
         @media (max-width: 600px) {
             .visualization-grid {
                 grid-template-columns: 1fr;
@@ -232,6 +239,10 @@
             }
             .chart-container {
                 height: 250px;
+            }
+            #chatbot-iframe {
+                width: 300px;
+                height: 450px;
             }
         }
     </style>
@@ -409,7 +420,7 @@
                 </div>
             </div>
             
-            <div class="additional-info">
+            <div class="visualization-info">
                 <h3>About These Visualizations</h3>
                 <p>The charts above illustrate how your risk factors compare to general population data. Your personal risk is calculated based on clinical algorithms that weigh each factor differently.</p>
                 <p>Family history details are included in your risk assessment if you reported any relatives with kidney disease, diabetes, hypertension, or heart disease.</p>
@@ -428,6 +439,7 @@
     </footer>
 
     <div id="chatbot-container">
+        <iframe id="chatbot-iframe" src="https://agent.jotform.com/0195bf7a139274149d20a98efdf483b08976"></iframe>
         <button id="chatbot-toggle">💬</button>
     </div>
 
@@ -478,8 +490,7 @@
             
             // Chatbot toggle
             document.getElementById('chatbot-toggle').addEventListener('click', function() {
-                const container = document.getElementById('chatbot-container');
-                container.classList.toggle('chatbot-visible');
+                document.getElementById('chatbot-container').classList.toggle('chatbot-visible');
             });
         });
         
